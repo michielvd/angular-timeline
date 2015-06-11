@@ -22,14 +22,17 @@ Usage
 
 Create a div with the ```timeline``` attribute to instantiate a Timeline. Data must be passed as an array of objects, read the [Almende Timeline documentation on available fields](http://almende.github.io/chap-links-library/js/timeline/doc/#Data_Format).
 ```html
-<div timeline="data" 
+<div timeline="data"
   	 timeline-options="options"
+     timeline-full-range-update="true"
      timeline-selection="selection"></div>
 ```
 
 The ```timeline-options``` attribute provides access to Timeline configuration, read the [Almende Timeline documentation on available options](http://almende.github.io/chap-links-library/js/timeline/doc/#Configuration_Options).
 
 The ```timeline-selection``` attribute provides two-way binding on selected/selecting object.
+
+The ```timeline-full-range-update``` attribute boolean that activate timeline.setVisibleChartRangeAuto() on data update.
 
 Credits
 =======

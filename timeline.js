@@ -1,5 +1,5 @@
 /**
- * Angular directive to display an interactive visualization chart to visualize events in time, 
+ * Angular directive to display an interactive visualization chart to visualize events in time,
  * relaying on Almende's Timeline (http://almende.github.io/chap-links-library/timeline.html)
  * @author Gabriele Destefanis
  * @version 0.1.0
@@ -48,11 +48,15 @@ angular.module('destegabry.timeline', [])
       scope: {
         model: '=timeline',
         options: '=timelineOptions',
-        selection: '=timelineSelection'
+        selection: '=timelineSelection',
+        fullRange: '=timelinefullRangeUpdate',
+        timeline: '=timelineCtrl'
       },
       link: function($scope, $element) {
         var timeline = new links.Timeline($element[0]);
         timeline.addItemType('range-popup', ItemRangePopup);
+
+        $scope.timeline = timeline;
 
         links.events.addListener(timeline, 'select', function() {
           $scope.selection = undefined;
@@ -66,7 +70,9 @@ angular.module('destegabry.timeline', [])
 
         $scope.$watch('model', function(newVal, oldVal) {
           timeline.setData(newVal);
-          timeline.setVisibleChartRangeAuto();
+          if ($scope.fullRange) {
+            timeline.setVisibleChartRangeAuto();
+          }
         },true);
 
         $scope.$watch('options', function(newVal, oldVal) {
