@@ -5,6 +5,12 @@ A really simple angular directive to display a loader image while loading ajax r
 
 Added the ```range-popup``` item type to display contents on a tooltip when hovering, so you have to rely on Bootstrap tooltips.
 
+Installation
+============
+```html
+bower install  angular-chap-timeline --save
+```
+
 Requirements
 ============
 
